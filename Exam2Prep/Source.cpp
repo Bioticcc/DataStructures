@@ -9,6 +9,7 @@ int main() {
 	L.insertAtFront(&head, "one");
 	L.insertAtFront(&head, "tw0");
 	L.insertAtFront(&head, "three");
+	cout << "Linked List:\n";
 	L.printList(head);
 
 	L.insetAtBack(&head, "four");
@@ -21,6 +22,7 @@ int main() {
 	L.deleteNode(&head);
 	L.printList(head);
 
+	cout << "BST\n";
 	//Bst Tree
 	BstTree T;
 	BstNode* root = nullptr;
@@ -31,6 +33,7 @@ int main() {
 	root = T.insertToTree(root, "five");
 	T.printTree(root);
 
+	cout << "Queue\n";
 	//Queue
 	Queue Q;
 	Q.enQueue("one");
@@ -43,6 +46,7 @@ int main() {
 	Q.deQueue();
 	Q.printQueue();
 
+	cout << "\n[Stack]\n";
 	//Stack
 	Stack S;
 	S.push("one");
@@ -56,12 +60,7 @@ int main() {
 	S.pop();
 	S.pop();
 	S.pop();
-	S.pop();
-	S.pop();
-	S.pop();
-	S.pop();
-
-	//S.printStack();
+	S.printStack();
 
 
 	return 1;

@@ -119,7 +119,6 @@ public:
 	qNode* head;
 	Queue() : head(nullptr), tail(nullptr) {}
 	int enQueue(string data) {
-		
 		qNode* newNode = new qNode(data);
 		if (tail) {
 			tail->next = newNode;
@@ -162,18 +161,35 @@ class Stack {
 public:
 	sNode* head;
 	sNode* tail;
-	Stack() : head(nullptr), tail(nullptr) {}
+	int index;
+	Stack() : head(nullptr), tail(nullptr), index(0) {}
 
 	int push(string data) {
 		sNode* newNode = new sNode(data);
 		if (tail) tail->next = newNode;
 		tail = newNode;
 		if (!head) head = tail; 
+		index++;
 		return 1;
 	}
 
 	void pop() {
-		if (!head) return;
+		if (!index) {
+			delete head;
+			index--;
+			return;
+		}
+		if (index == 1) {
+			sNode* temp = head;
+			head = nullptr;
+			tail = nullptr;
+			delete temp;
+			index--;
+			return;
+		
+		}
+	
+
 		sNode* temp = tail;
 		sNode* curr = head;
 		sNode* prevprev = curr;
@@ -184,6 +200,7 @@ public:
 		prevprev->next = nullptr;
 		tail = prevprev;
 		delete temp;
+		index--;
 	}
 
 	void printStack() {
