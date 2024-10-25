@@ -166,13 +166,14 @@ public:
 
 	int push(string data) {
 		sNode* newNode = new sNode(data);
-		if (tail)tail->next = newNode;
+		if (tail) tail->next = newNode;
 		tail = newNode;
 		if (!head) head = tail; 
 		return 1;
 	}
 
 	void pop() {
+		if (!head) return;
 		sNode* temp = tail;
 		sNode* curr = head;
 		sNode* prevprev = curr;
@@ -181,11 +182,12 @@ public:
 			curr = curr->next;
 		}
 		prevprev->next = nullptr;
-		prevprev = tail;
+		tail = prevprev;
 		delete temp;
 	}
 
 	void printStack() {
+		if (!head) return;
 		sNode* curr = head;
 		while (curr != nullptr) {
 			cout << curr->data << std::endl;

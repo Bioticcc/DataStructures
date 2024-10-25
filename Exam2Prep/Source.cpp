@@ -48,12 +48,20 @@ int main() {
 	S.push("one");
 	S.push("two");
 	S.push("three");
-	S.printStack();
-
-	S.pop();
-	S.pop();
+	S.push("four");
+	S.push("five");
 
 	S.printStack();
+	
+	S.pop();
+	S.pop();
+	S.pop();
+	S.pop();
+	S.pop();
+	S.pop();
+	S.pop();
+
+	//S.printStack();
 
 
 	return 1;
