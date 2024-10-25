@@ -54,17 +54,46 @@ int main() {
 	S.push("three");
 	S.push("four");
 	S.push("five");
+	S.printStack();
+	S.pop();
+	S.pop();
+	S.pop();
+	S.printStack();
 
-	S.printStack();
-	
-	S.pop();
-	S.pop();
-	S.pop();
-	S.printStack();
+	//Queue Via TEMPLATE:
+	queue1<qNode> Q1;
+	qNode* head1 = nullptr;
+	head1 = Q1.enQueue(head1, "one");
+	head1 = Q1.enQueue(head1, "two");
+	head1 = Q1.enQueue(head1, "three");
+	head1 = Q1.enQueue(head1, "four");
+	head1 = Q1.enQueue(head1, "five");
+
+	Q1.printQueue(head1);
+
+
+	//Stack Via TEMPLATE:
+	stack1<sNode> S1;
+	//sNode* head2 = nullptr;
+	cout << "\nSTACK1:\n";
+	S1.push("one");
+	S1.push("two");
+	S1.push("three");
+	S1.push("four");
+	S1.printStack();
+	cout << "\nSTACK2:\n";
+	stack1<sNode> S2;
+	S2 = S1;
+	S2.printStack();
+
+
+
+
+
+
+
+
 
 
 	return 1;
-
-
-
 }

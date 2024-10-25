@@ -214,3 +214,81 @@ public:
 	}
 };
 
+template <class T>
+class queue1 {
+private:
+	T* head;
+	T* tail;
+public:
+	queue1() : head(nullptr), tail(nullptr) {}
+	T* getHead() { return head; }
+	T* getTail() { return tail; }
+	void setHead(T* ptr) { head = ptr; }
+	void setTail(T* ptr) { head = ptr; }
+
+	T* enQueue(T* head, string data) {
+		T* newNode = new T(data);
+		if (tail) {
+			tail->next = newNode;
+		}
+		tail = newNode;
+		if (!head) {
+			head = tail;
+		}
+		return head;
+	}
+
+	void printQueue(T* head) {
+		T* curr = head;
+		while (curr != nullptr) {
+			cout << curr->data << std::endl;
+			curr = curr->next;
+		}
+		cout << "------------\n";
+	}
+};
+
+template <class S>
+class stack1 {
+private:
+	S* top;
+	int index;
+public:
+	stack1() :top(nullptr), index(0) {}
+
+	S* push(string data) {
+		S* newNode = new S(data);
+		if (top == nullptr) {
+			top = newNode;
+			index++;
+		}
+		else {
+			S* temp = top;
+			top = newNode;
+			newNode->next = temp;
+			index++;
+		}
+		return top;
+	}
+	
+	//overloaded copy constructor:
+	stack1& operator=(const stack1& S1) {
+		S* curr = S1.top;
+		while (curr != nullptr) {
+			this->push(curr->data);
+			curr = curr->next;
+		}
+		return *this;
+	}
+	
+
+
+	void printStack() {
+		S* curr = top;
+		while (curr != nullptr) {
+			cout << curr->data << std::endl;
+			curr = curr->next;
+		}
+		cout << "------------\n";
+	}
+};
